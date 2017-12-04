@@ -4,11 +4,11 @@ use rustyline::error::ReadlineError;
 use rustyline::Editor;
 
 fn main() {
-    println!(" ____               _   ");
-    println!("|  _ \\             | |  ");
-    println!("| |_) | _   _  ___ | |_ ");
+    println!(" ____               _");
+    println!("|  _ \\             | |");
+    println!("| |_) | _   _  ___ | |_");
     println!("|  _ < | | | |/ __|| __|");
-    println!("| |_) || |_| |\\__ \\| |_ ");
+    println!("| |_) || |_| |\\__ \\| |_");
     println!("|____/  \\__,_||___/ \\__|\n");
     println!("Brainfuck REPL");
     println!("Written by Mateusz 'Haggus' Mrowiec\n");
@@ -21,18 +21,18 @@ fn main() {
         match readline {
             Ok(line) => {
                 println!("{}", line);
-            },
+            }
             Err(ReadlineError::Interrupted) => {
                 println!("CTRL-C");
-                break
-            },
+                break;
+            }
             Err(ReadlineError::Eof) => {
                 println!("CTRL-D");
-                break
-            },
+                break;
+            }
             Err(err) => {
                 println!("Error: {:?}", err);
-                break
+                break;
             }
         }
     }
