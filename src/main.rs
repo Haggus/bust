@@ -3,6 +3,8 @@ extern crate rustyline;
 use rustyline::error::ReadlineError;
 use rustyline::Editor;
 
+mod parser;
+
 fn main() {
     println!(" ____               _");
     println!("|  _ \\             | |");
