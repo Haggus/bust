@@ -3,6 +3,7 @@ extern crate rustyline;
 use rustyline::error::ReadlineError;
 use rustyline::Editor;
 
+mod vm;
 mod parser;
 
 fn main() {
