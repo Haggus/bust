@@ -33,7 +33,11 @@ mod tests {
     fn translates_chars_to_instructions() {
         assert_eq!(
             Parser::parse("+++"),
-            vec![Instruction::Increment, Instruction::Increment, Instruction::Increment]
+            vec![
+                Instruction::Increment,
+                Instruction::Increment,
+                Instruction::Increment,
+            ]
         );
     }
     #[test]
@@ -41,7 +45,14 @@ mod tests {
     fn filters_out_unnecessary_characters() {
         assert_eq!(
             Parser::parse("><hello..[]"),
-            vec![Instruction::MoveRight, Instruction::MoveLeft, Instruction::Output, Instruction::Output, Instruction::JumpRight(0), Instruction::JumpLeft(0)]
+            vec![
+                Instruction::MoveRight,
+                Instruction::MoveLeft,
+                Instruction::Output,
+                Instruction::Output,
+                Instruction::JumpRight(0),
+                Instruction::JumpLeft(0),
+            ]
         );
     }
 }
