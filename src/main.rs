@@ -1,10 +1,12 @@
 extern crate rustyline;
 
+mod vm;
+mod parser;
+
 use rustyline::error::ReadlineError;
 use rustyline::Editor;
 
-mod vm;
-mod parser;
+use vm::VirtualMachine;
 
 fn main() {
     println!(" ____               _");
@@ -17,13 +19,16 @@ fn main() {
     println!("Written by Mateusz 'Haggus' Mrowiec\n");
     println!("Press Ctrl+C to Exit\n");
 
+    let mut vm = VirtualMachine::new();
+
     let mut rl = Editor::<()>::new();
 
     loop {
         let readline = rl.readline("> ");
         match readline {
             Ok(line) => {
-                println!("{}", line);
+                vm.add_instructions(line.as_str());
+                println!("{}", vm.run().unwrap());
             }
             Err(ReadlineError::Interrupted) => {
                 println!("CTRL-C");
