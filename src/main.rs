@@ -20,7 +20,6 @@ fn main() {
     println!("Press Ctrl+C to Exit\n");
 
     let mut vm = VirtualMachine::new();
-
     let mut rl = Editor::<()>::new();
 
     loop {
